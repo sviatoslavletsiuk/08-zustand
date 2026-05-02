@@ -10,6 +10,23 @@ interface PageProps {
   params: Promise<{ slug: string[] }>;
 }
 
+export async function generateMetadata({ params }: PageProps) {
+  const resolvedParams = await params;
+  const tag = resolvedParams.slug?.[0] || "all";
+  const filterName = tag === "all" ? "All Notes" : `Category: ${tag}`;
+
+  return {
+    title: `${filterName} - NoteHub`,
+    description: `Browse and manage your notes in the ${filterName.toLowerCase()} category.`,
+    openGraph: {
+      title: `${filterName} - NoteHub`,
+      description: `Browse and manage your notes in the ${filterName.toLowerCase()} category.`,
+      url: `https://your-domain.com/notes/filter/${tag}`,
+      images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+    },
+  };
+}
+
 export default async function FilteredNotesPage({ params }: PageProps) {
   const resolvedParams = await params;
   const tag = resolvedParams.slug?.[0] || "all";

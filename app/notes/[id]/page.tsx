@@ -7,6 +7,32 @@ import { fetchNoteById } from "@/lib/api";
 import NoteDetailsClient from "./NoteDetails.client";
 
 // В Next.js 15 params — це Promise
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  try {
+    const note = await fetchNoteById(id);
+    return {
+      title: `${note.title} - NoteHub`,
+      description: note.content || "View this note details.",
+      openGraph: {
+        title: `${note.title} - NoteHub`,
+        description: note.content || "View this note details.",
+        url: `https://your-domain.com/notes/${id}`,
+        images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+      },
+    };
+  } catch {
+    return {
+      title: "Note Not Found - NoteHub",
+      description: "The note you are looking for does not exist.",
+    };
+  }
+}
+
 export default async function NoteDetailPage({
   params,
 }: {

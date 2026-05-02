@@ -1,5 +1,18 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Page Not Found - NoteHub",
+  description:
+    "The page you are looking for does not exist. Please check the URL or go back to the home page.",
+  openGraph: {
+    title: "Page Not Found - NoteHub",
+    description:
+      "The page you are looking for does not exist. Please check the URL or go back to the home page.",
+    url: "https://your-domain.com/404",
+    images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+  },
+};
+
 export default function NotFound() {
   return (
     <main
@@ -11,7 +24,7 @@ export default function NotFound() {
         minHeight: "80vh",
         textAlign: "center",
         padding: "20px",
-        fontFamily: "sans-serif",
+        fontFamily: "var(--font-roboto)",
       }}
     >
       <h1
