@@ -1,0 +1,70 @@
+.noteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 20px 0;
+}
+
+.noteCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.noteCard:hover {
+  transform: translateY(-5px);
+}
+
+.noteLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.noteTitle {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.noteContent {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.noteTag {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.deleteBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.deleteBtn:hover {
+  background-color: #ff7875;
+}
