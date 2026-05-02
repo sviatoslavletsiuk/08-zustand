@@ -1,6 +1,7 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Page Not Found - NoteHub",
   description:
     "The page you are looking for does not exist. Please check the URL or go back to the home page.",
@@ -9,7 +10,9 @@ export const metadata = {
     description:
       "The page you are looking for does not exist. Please check the URL or go back to the home page.",
     url: "https://your-domain.com/404",
-    images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+    images: [
+      { url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg" },
+    ],
   },
 };
 

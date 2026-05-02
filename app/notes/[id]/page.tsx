@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   dehydrate,
   HydrationBoundary,
@@ -11,7 +12,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
-}) {
+}): Promise<Metadata> {
   const { id } = await params;
   try {
     const note = await fetchNoteById(id);
@@ -22,7 +23,9 @@ export async function generateMetadata({
         title: `${note.title} - NoteHub`,
         description: note.content || "View this note details.",
         url: `https://your-domain.com/notes/${id}`,
-        images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+        images: [
+          { url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg" },
+        ],
       },
     };
   } catch {

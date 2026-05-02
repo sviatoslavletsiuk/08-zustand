@@ -1,4 +1,5 @@
 import "./globals.css";
+import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -11,7 +12,7 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "NoteHub",
   description:
     "Your personal note management app for managing notes efficiently.",
@@ -19,7 +20,10 @@ export const metadata = {
     title: "NoteHub",
     description:
       "Your personal note management app for managing notes efficiently.",
-    images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+    url: "https://your-domain.com",
+    images: [
+      { url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg" },
+    ],
   },
 };
 

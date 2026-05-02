@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   dehydrate,
   HydrationBoundary,
@@ -10,7 +11,9 @@ interface PageProps {
   params: Promise<{ slug: string[] }>;
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const tag = resolvedParams.slug?.[0] || "all";
   const filterName = tag === "all" ? "All Notes" : `Category: ${tag}`;
@@ -22,7 +25,9 @@ export async function generateMetadata({ params }: PageProps) {
       title: `${filterName} - NoteHub`,
       description: `Browse and manage your notes in the ${filterName.toLowerCase()} category.`,
       url: `https://your-domain.com/notes/filter/${tag}`,
-      images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+      images: [
+        { url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg" },
+      ],
     },
   };
 }
